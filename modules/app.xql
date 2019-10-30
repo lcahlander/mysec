@@ -1,4 +1,4 @@
-xquery version "3.0";
+xquery version "3.1";
 
 module namespace app="http://exist-db.org/apps/mysec/templates";
 
@@ -52,6 +52,6 @@ function app:userinfo($node as node(), $model as map(*)) as map(*) {
     let $name := if ($user) then sm:get-account-metadata($user, xs:anyURI('http://axschema.org/namePerson')) else 'Guest'
     let $group := if ($user) then sm:get-user-groups($user) else 'guest'
     return
-        map { "user-id" := $user, "user-name" := $name, "user-groups" := $group}
+        map { "user-id" : $user, "user-name" : $name, "user-groups" : $group}
 };
 
